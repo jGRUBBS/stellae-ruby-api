@@ -1,0 +1,6 @@
+require "stellae/version"
+require "stellae/response"
+require "stellae/client"
+require "stellae/soap"
+require "stellae/order"
+require "stellae/inventory"
