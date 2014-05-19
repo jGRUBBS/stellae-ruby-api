@@ -1,6 +1,11 @@
 # Stellae
 
-This is a library for interfacing with the Stellae Fulfillment API
+https://travis-ci.org/jGRUBBS/stellae-ruby-api.svg?branch=master
+
+[![Build Status](https://travis-ci.org/jGRUBBS/stellae-ruby-api.svg?branch=master)](https://travis-ci.org/jGRUBBS/stellae-ruby-api)
+[![Code Climate](https://codeclimate.com/github/jGRUBBS/stellae-ruby-api.svg?branch=master)](https://codeclimate.com/github/jGRUBBS/stellae-ruby-api)
+
+Ruby library for interfacing with the Stellae Fulfillment API
 
 ## Installation
 
