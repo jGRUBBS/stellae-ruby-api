@@ -17,7 +17,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install stellae
+    $ gem install stellae-ruby-api
 
 ## Usage
 

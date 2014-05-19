@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'stellae/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "stellae-api"
+  spec.name          = "stellae-ruby-api"
   spec.version       = Stellae::VERSION
   spec.authors       = ["Justin Grubbs"]
   spec.email         = ["justin@sellect.com"]
