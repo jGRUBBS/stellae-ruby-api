@@ -1,7 +1,5 @@
 # Stellae
 
-https://travis-ci.org/jGRUBBS/stellae-ruby-api.svg?branch=master
-
 [![Build Status](https://travis-ci.org/jGRUBBS/stellae-ruby-api.svg?branch=master)](https://travis-ci.org/jGRUBBS/stellae-ruby-api)
 [![Code Climate](https://codeclimate.com/github/jGRUBBS/stellae-ruby-api.png)](https://codeclimate.com/github/jGRUBBS/stellae-ruby-api)
 
