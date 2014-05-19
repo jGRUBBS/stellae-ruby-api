@@ -1,12 +1,12 @@
 # Stellae
 
-TODO: Write a gem description
+This is a library for interfacing with the Stellae Fulfillment API
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'stellae-api'
+    gem 'stellae-ruby-api'
 
 And then execute:
 
