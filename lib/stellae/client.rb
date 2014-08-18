@@ -1,15 +1,17 @@
-require 'net/http'
+require 'net/https'
 require 'xmlsimple'
 
 module Stellae
   class Client
 
+    PORT      = 443
     TEST_HOST = "www.stellae.us"
     TEST_PATH = "/webservices/SIIService.svc?wsdl"
     LIVE_HOST = "www.stellae.us"
     LIVE_PATH = "/webservices/SIIService.svc?wsdl"
+    KEYS_MAP  = { "on_hand" => "qty" }
 
-    attr_accessor :username, :password, :response, :type
+    attr_accessor :username, :password, :response, :type, :request_uri
 
     def initialize(username, password, options = {})
       raise "Username is required" unless username
@@ -28,6 +30,23 @@ module Stellae
     def get_inventory
       request  = Inventory.new(self).build_inventory_request
       response = post(request)
+      map_results(response.result['Inventory_values'][0]['UPC_Inventory_Response'])
+    end
+
+    def upcs(inventory)
+      inventory.collect { |s| s["upc"] }
+    end
+
+    def mapped_inventory(upcs, inventory)
+      inventory.collect do |stock| 
+        if upcs.include?(stock["upc"])
+          { quantity: stock["qty"].to_i }
+        end
+      end.compact
+    end
+
+    def request_uri
+      "https://#{host}#{path}"
     end
 
     private
@@ -59,15 +78,44 @@ module Stellae
       puts message
     end
 
+    def http
+      @http ||= Net::HTTP.new(host, PORT)
+    end
+
+    def request(xml_request)
+      request              = Net::HTTP::Post.new(path)
+      request.body         = xml_request
+      request.content_type = 'application/soap+xml; charset=utf-8'
+      http.use_ssl         = true
+      http.verify_mode     = OpenSSL::SSL::VERIFY_NONE
+      http.request(request)
+    end
+
     def post(xml_request)
-      http     = Net::HTTP.new(host, 80)
-      response = http.post(path, xml_request, {'Content-Type' => 'text/xml'})
-      log response
-      parse_response(response, @type)
+      response = request(xml_request)
+      parse_response(response.body)
     end
 
     def parse_response(xml_response)
+      log xml_response
       @response = Response.new(xml_response, @type)
+    end
+
+    def map_results(results)
+      results = flatten_results(results)
+      results.map do |h|
+        h.inject({ }) { |x, (k,v)| x[map_keys(k)] = v; x }
+      end
+    end
+
+    def flatten_results(results)
+      @flattened ||= results.map do |h| 
+        h.each { |k,v| h[k] = v[0] }
+      end
+    end
+
+    def map_keys(key)
+      KEYS_MAP[key] || key
     end
 
   end

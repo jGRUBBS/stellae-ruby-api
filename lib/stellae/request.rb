@@ -43,8 +43,8 @@ module Stellae
 
     def build_user(xml)
       xml.user :"xmlns:b" => SCHEMA[:datacontract], :"xmlns:i" => SCHEMA[:instance] do
-        xml.b :user_name,     "<![CDATA[#{@client.username}]]>"
-        xml.b :user_password, "<![CDATA[#{@client.password}]]>"
+        xml.b :user_name,     @client.username
+        xml.b :user_password, @client.password
       end
     end
 
