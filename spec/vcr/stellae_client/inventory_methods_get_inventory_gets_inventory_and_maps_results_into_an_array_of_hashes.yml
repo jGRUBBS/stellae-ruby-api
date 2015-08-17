@@ -2,13 +2,13 @@
 http_interactions:
 - request:
     method: post
-    uri: https://www.stellae.us/webservices/SIIService.svc?wsdl
+    uri: https://webservice.stellae.us/SIIServices/Siiservice.svc?wsdl
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope"
         xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">SII/ISIIService/get_inventory_on_hand</a:Action><a:MessageID>urn:uuid:56b55a70-8bbc-471d-94bb-9ca060bcf99f</a:MessageID><a:ReplyTo><a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address></a:ReplyTo><a:To
-        s:mustUnderstand="1">https://www.stellae.us/webservices/SIIService.svc</a:To></s:Header><s:Body><get_inventory_on_hand
-        xmlns="SII"><user xmlns:b="http://schemas.datacontract.org/2004/07/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:user_name>DELPOZOECOM</b:user_name><b:user_password>TESTPASSWORD</b:user_password></user><upcs
+        s:mustUnderstand="1">https://webservice.stellae.us/SIIServices/Siiservice.svc</a:To></s:Header><s:Body><get_inventory_on_hand
+        xmlns="SII"><user xmlns:b="http://schemas.datacontract.org/2004/07/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:user_name>TESTACCOUNT</b:user_name><b:user_password>TESTPASSWORD</b:user_password></user><upcs
         xmlns:b="http://schemas.datacontract.org/2004/07/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/></get_inventory_on_hand></s:Body></s:Envelope>
     headers:
       Accept-Encoding:
@@ -33,12 +33,12 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Mon, 17 Aug 2015 14:43:48 GMT
+      - Mon, 17 Aug 2015 19:33:52 GMT
     body:
       encoding: UTF-8
       string: <s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action
         s:mustUnderstand="1">SII/ISIIService/get_inventory_on_handResponse</a:Action><ActivityId
-        CorrelationId="fe728bb3-ead7-4cde-94f9-6659e13a96e2" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">2e31a427-379b-4cde-a899-bc4a7b2a5acb</ActivityId><a:RelatesTo>urn:uuid:56b55a70-8bbc-471d-94bb-9ca060bcf99f</a:RelatesTo></s:Header><s:Body><get_inventory_on_handResponse
+        CorrelationId="b63b73c7-28fb-4f8a-83ae-8f81f3a92971" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">e6c8e76e-e2da-488d-8afe-1c09cb2a35e8</ActivityId><a:RelatesTo>urn:uuid:56b55a70-8bbc-471d-94bb-9ca060bcf99f</a:RelatesTo></s:Header><s:Body><get_inventory_on_handResponse
         xmlns="SII"><get_inventory_on_handResult xmlns:b="http://schemas.datacontract.org/2004/07/"
         xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:Inventory_values><b:UPC_Inventory_Response><b:lot>
         </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326604071</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
@@ -69,5 +69,5 @@ http_interactions:
         </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326696838</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
         </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326699950</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response></b:Inventory_values><b:status>0001</b:status></get_inventory_on_handResult></get_inventory_on_handResponse></s:Body></s:Envelope>
     http_version: 
-  recorded_at: Mon, 17 Aug 2015 14:46:51 GMT
+  recorded_at: Mon, 17 Aug 2015 19:36:56 GMT
 recorded_with: VCR 2.9.3

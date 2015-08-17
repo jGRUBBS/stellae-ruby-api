@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Stellae::Client do
-  let(:client) { Stellae::Client.new("TESTACCOUNT", "TESTPASSWORD") }
+  let(:client) { Stellae::Client.new("TESTACCOUNT", "TESTPASSWORD", test_mode: true) }
 
   describe '#send_order_request', :vcr do
     let(:result) { client.send_order_request(order_hash) }
@@ -43,7 +43,7 @@ describe Stellae::Client do
 
   describe '#request_uri' do
     it 'returns the complete request uri' do
-      expect(client.request_uri).to eq("https://www.stellae.us/webservices/SIIService.svc?wsdl")
+      expect(client.request_uri).to eq("https://webservice.stellae.us/SIIServices/Siiservice.svc?wsdl")
     end
   end
 
