@@ -37,7 +37,7 @@ module Stellae
         xml.a :ReplyTo do
           xml.a :Address, "http://www.w3.org/2005/08/addressing/anonymous"
         end
-        xml.a :To, "https://www.stellae.us/webservices/SIIService.svc", :"s:mustUnderstand" => "1"
+        xml.a :To, @client.request_uri.split('?').first, :"s:mustUnderstand" => "1"
       end
     end
 
