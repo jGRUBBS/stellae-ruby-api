@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.stellae.us/webservices/SIIService.svc?wsdl
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope"
+        xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">SII/ISIIService/new_order_entry</a:Action><a:MessageID>urn:uuid:56b55a70-8bbc-471d-94bb-9ca060bcf99f</a:MessageID><a:ReplyTo><a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address></a:ReplyTo><a:To
+        s:mustUnderstand="1">https://www.stellae.us/webservices/SIIService.svc</a:To></s:Header><s:Body><new_order_entry
+        xmlns="SII"><user xmlns:b="http://schemas.datacontract.org/2004/07/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:user_name>DELPOZOECOM</b:user_name><b:user_password>TESTPASSWORD</b:user_password></user><ohn
+        xmlns:b="http://schemas.datacontract.org/2004/07/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:SERVICE>90</b:SERVICE><b:USER1>&lt;![CDATA[http://example.com/R123123123/invoice]]&gt;</b:USER1><b:CARRIER>FEDEX</b:CARRIER><b:CUSTOMER_CODE/><b:DELIVERY_GIFT_WRAP/><b:DELIVERY_MESSAGE>&lt;![CDATA[Happy
+        Birthday!]]&gt;</b:DELIVERY_MESSAGE><b:EMAIL>someone@somehwere.com</b:EMAIL><b:ORDER_ID>R123123123</b:ORDER_ID><b:ORDER_TYPE>OO</b:ORDER_TYPE><b:DELIVERY_FROM
+        i:nil="true"/><b:DELIVERY_TO i:nil="true"/><b:DELIVERY_ID i:nil="true"/><b:FREIGHT_ACCOUNT
+        i:nil="true"/><b:CUSTOMER_NAME>&lt;![CDATA[John Smith]]&gt;</b:CUSTOMER_NAME><b:CUSTOMER_ADDRESS_1>&lt;![CDATA[123
+        Here Now]]&gt;</b:CUSTOMER_ADDRESS_1><b:CUSTOMER_ADDRESS_2>&lt;![CDATA[2nd
+        Floor]]&gt;</b:CUSTOMER_ADDRESS_2><b:CUSTOMER_ADDRESS_3>&lt;![CDATA[]]&gt;</b:CUSTOMER_ADDRESS_3><b:CUSTOMER_ADDRESS_CITY>New
+        York</b:CUSTOMER_ADDRESS_CITY><b:CUSTOMER_ADDRESS_COUNTRY>US</b:CUSTOMER_ADDRESS_COUNTRY><b:CUSTOMER_ADDRESS_STATE>New
+        York</b:CUSTOMER_ADDRESS_STATE><b:CUSTOMER_ADDRESS_ZIP>10012</b:CUSTOMER_ADDRESS_ZIP><b:CUSTOMER_TELEPHONE>123-123-1234</b:CUSTOMER_TELEPHONE><b:DELIVERY_NAME>&lt;![CDATA[John
+        Smith]]&gt;</b:DELIVERY_NAME><b:DELIVERY_ADDRESS_1>&lt;![CDATA[123 Here Now]]&gt;</b:DELIVERY_ADDRESS_1><b:DELIVERY_ADDRESS_2>&lt;![CDATA[2nd
+        Floor]]&gt;</b:DELIVERY_ADDRESS_2><b:DELIVERY_ADDRESS_3>&lt;![CDATA[]]&gt;</b:DELIVERY_ADDRESS_3><b:DELIVERY_ADDRESS_CITY>New
+        York</b:DELIVERY_ADDRESS_CITY><b:DELIVERY_ADDRESS_COUNTRY>US</b:DELIVERY_ADDRESS_COUNTRY><b:DELIVERY_ADDRESS_STATE>New
+        York</b:DELIVERY_ADDRESS_STATE><b:DELIVERY_ADDRESS_ZIP>10012</b:DELIVERY_ADDRESS_ZIP><b:DELIVERY_TELEPHONE>123-123-1234</b:DELIVERY_TELEPHONE><b:Order_Details><b:Order_Detail_New><b:PRICE>127.23</b:PRICE><b:QUANTITY>1</b:QUANTITY><b:SIZE>XS</b:SIZE><b:sku>326604071</b:sku></b:Order_Detail_New></b:Order_Details></ohn></new_order_entry></s:Body></s:Envelope>
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/soap+xml; charset=utf-8
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '914'
+      Content-Type:
+      - application/soap+xml; charset=utf-8
+      Server:
+      - Microsoft-IIS/8.5
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Mon, 17 Aug 2015 16:10:49 GMT
+    body:
+      encoding: UTF-8
+      string: <s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action
+        s:mustUnderstand="1">SII/ISIIService/new_order_entryResponse</a:Action><ActivityId
+        CorrelationId="d5d60479-ee09-497a-9e01-466deda2853e" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">2cd0b47a-63c5-485c-8eea-aa55074f6e4e</ActivityId><a:RelatesTo>urn:uuid:56b55a70-8bbc-471d-94bb-9ca060bcf99f</a:RelatesTo></s:Header><s:Body><new_order_entryResponse
+        xmlns="SII"><new_order_entryResult xmlns:b="http://schemas.datacontract.org/2004/07/"
+        xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:detail_status i:nil="true"
+        xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><b:sii_order_number>0</b:sii_order_number><b:status>0005
+        - invalid order type must be OO or CM</b:status></new_order_entryResult></new_order_entryResponse></s:Body></s:Envelope>
+    http_version: 
+  recorded_at: Mon, 17 Aug 2015 16:13:53 GMT
+recorded_with: VCR 2.9.3

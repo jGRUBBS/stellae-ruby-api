@@ -1,0 +1,73 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.stellae.us/webservices/SIIService.svc?wsdl
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope"
+        xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action s:mustUnderstand="1">SII/ISIIService/get_inventory_on_hand</a:Action><a:MessageID>urn:uuid:56b55a70-8bbc-471d-94bb-9ca060bcf99f</a:MessageID><a:ReplyTo><a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address></a:ReplyTo><a:To
+        s:mustUnderstand="1">https://www.stellae.us/webservices/SIIService.svc</a:To></s:Header><s:Body><get_inventory_on_hand
+        xmlns="SII"><user xmlns:b="http://schemas.datacontract.org/2004/07/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:user_name>DELPOZOECOM</b:user_name><b:user_password>TESTPASSWORD</b:user_password></user><upcs
+        xmlns:b="http://schemas.datacontract.org/2004/07/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/></get_inventory_on_hand></s:Body></s:Envelope>
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/soap+xml; charset=utf-8
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '5234'
+      Content-Type:
+      - application/soap+xml; charset=utf-8
+      Server:
+      - Microsoft-IIS/8.5
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Mon, 17 Aug 2015 14:45:36 GMT
+    body:
+      encoding: UTF-8
+      string: <s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action
+        s:mustUnderstand="1">SII/ISIIService/get_inventory_on_handResponse</a:Action><ActivityId
+        CorrelationId="10af0044-677f-4e54-bd37-0aa8fc8ae893" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">3a218872-09e2-46d5-a354-ebb32c007dde</ActivityId><a:RelatesTo>urn:uuid:56b55a70-8bbc-471d-94bb-9ca060bcf99f</a:RelatesTo></s:Header><s:Body><get_inventory_on_handResponse
+        xmlns="SII"><get_inventory_on_handResult xmlns:b="http://schemas.datacontract.org/2004/07/"
+        xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:Inventory_values><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326604071</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326609016</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326612425</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326614291</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326616970</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326617439</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326624327</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326625879</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326626167</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326626532</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326627332</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326630329</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326636519</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326642628</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326646312</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326652161</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326656887</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326666544</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326668704</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326669917</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326671947</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326682263</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326685907</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326691679</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326692239</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326696838</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response><b:UPC_Inventory_Response><b:lot>
+        </b:lot><b:on_hand>1</b:on_hand><b:uom>EA</b:uom><b:upc>326699950</b:upc><b:warehouse>NYC</b:warehouse></b:UPC_Inventory_Response></b:Inventory_values><b:status>0001</b:status></get_inventory_on_handResult></get_inventory_on_handResponse></s:Body></s:Envelope>
+    http_version: 
+  recorded_at: Mon, 17 Aug 2015 14:48:40 GMT
+recorded_with: VCR 2.9.3

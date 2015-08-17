@@ -1,94 +1,49 @@
 require 'spec_helper'
 
 describe Stellae::Client do
-  before do
-    @client = Stellae::Client.new("the_username", "the_password")
-  end
+  let(:client) { Stellae::Client.new("TESTACCOUNT", "TESTPASSWORD") }
 
-  describe '#send_order_request' do
-    it 'should send order request and return parsed respose' do
-      Stellae::Order.any_instance.should_receive(:build_order_request).with(order_hash)
-      @client.should_receive(:post)
-      @client.send_order_request(order_hash)
+  describe '#send_order_request', :vcr do
+    let(:result) { client.send_order_request(order_hash) }
+
+    it 'sends an order request and returns a parsed respose' do
+      expect(result).to be_a(Stellae::Response)
+      expect(result.success?).to eq(true)
     end
   end
 
-  describe 'private#default_options' do
-    it 'should return a hash' do
-      @client.send(:default_options).should be_a Hash
-    end
-  end
+  context 'inventory methods' do
+    let(:result) { client.get_inventory }
+    let(:upcs)   { client.upcs(result)  }
 
-  describe 'private#testing?' do
-    it 'should return boolean for test mode' do
-      @client.send(:testing?).should be_false
-      @client.instance_variable_set(:@options, { test_mode: true })
-      @client.send(:testing?).should be_true
-    end
-  end
-
-  describe 'private#verbose?' do
-    it 'should return boolean for verbose mode' do
-      @client.send(:verbose?).should be_true
-      @client.instance_variable_set(:@options, { verbose: false })
-      @client.send(:verbose?).should be_false
-    end
-  end
-
-  describe 'private#host' do
-    it 'should' do
-      @client.stub(:testing?).and_return(false)
-      @client.send(:host).should == Stellae::Client::LIVE_HOST
-      @client.stub(:testing?).and_return(true)
-      @client.send(:host).should == Stellae::Client::TEST_HOST
-    end
-  end
-
-  describe 'private#path' do
-    it 'should' do
-      @client.stub(:testing?).and_return(false)
-      @client.send(:path).should == Stellae::Client::LIVE_PATH
-      @client.stub(:testing?).and_return(true)
-      @client.send(:path).should == Stellae::Client::TEST_PATH
-    end
-  end
-
-  describe 'private#log' do
-    context 'not in verbose mode' do
-      it 'should not log message' do
-        @client.stub(:verbose?).and_return(false)
-        @client.should_not_receive(:puts)
-        @client.send(:log, "message")
+    describe '#get_inventory' do
+      it 'gets inventory and maps results into an array of hashes' do
+        expect(result).to be_a(Array)
+        expect(result.first).to have_key("qty")
       end
     end
-    context 'in verbose mode' do
-      it 'should' do
-        @client.stub(:verbose?).and_return(true)
-        @client.should_receive(:puts).with("message")
-        @client.send(:log, "message")
+
+    describe '#upcs' do
+      it 'returns an array of upcs' do
+        expect(upcs).to be_a(Array)
+        expect(upcs).not_to be_empty
       end
     end
-  end
 
-  describe 'private#post' do
-    it 'should use net http to post xml request' do
-      path        = @client.send(:path)
-      xml_request = "xml_request"
-      response    = Stellae::Response.new("<xml>body</xml>", "new_request")
-      header      = {'Content-Type' => 'text/xml'}
-      Net::HTTP.any_instance.should_receive(:post).with(path, xml_request, header).and_return(response)
-      @client.should_receive(:parse_response).with(response, nil)
-      @client.should_receive(:log).with(response)
-      @client.send(:post, xml_request)
+    describe '#mapped_inventory' do
+      let(:mapped_inventory) { client.mapped_inventory(upcs, result) }
+
+      it 'returns an array of quantity hashes' do
+        expect(mapped_inventory).to be_a(Array)
+        expect(mapped_inventory.first).to have_key(:quantity)
+      end
     end
+
   end
 
-  describe 'private#parse_response' do
-    it 'should use xml simple to parse the response' do
-      xml_response = "xml_response"
-      XmlSimple.should_receive(:xml_in).with(xml_response)
-      response = @client.send(:parse_response, xml_response)
-      response.should be_a Stellae::Response
+  describe '#request_uri' do
+    it 'returns the complete request uri' do
+      expect(client.request_uri).to eq("https://www.stellae.us/webservices/SIIService.svc?wsdl")
     end
   end
 
