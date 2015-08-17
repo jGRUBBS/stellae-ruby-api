@@ -13,7 +13,7 @@ module Stellae
           xml.b :DELIVERY_MESSAGE,   "<![CDATA[#{order[:gift_message]}]]>"
           xml.b :EMAIL,              order[:email]
           xml.b :ORDER_ID,           order[:number]
-          xml.b :ORDER_TYPE,         order[:type]
+          xml.b :ORDER_TYPE,         order[:type] || "OO"
           xml.b :DELIVERY_FROM,   :"i:nil" => "true"
           xml.b :DELIVERY_TO,     :"i:nil" => "true"
           xml.b :DELIVERY_ID,     :"i:nil" => "true"

@@ -52,7 +52,7 @@ module Stellae
     end
 
     def parse_response(xml_response)
-      return nil if xml_response.blank?
+      return nil if xml_response.empty?
       XmlSimple.xml_in(xml_response)
     end
 

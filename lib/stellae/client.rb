@@ -6,7 +6,7 @@ module Stellae
 
     PORT      = 443
     TEST_HOST = "www.stellae.us"
-    TEST_PATH = "/webservices/SIIService.svc?wsdl"
+    TEST_PATH = "/webservicestest/SIIService.svc?wsdl"
     LIVE_HOST = "www.stellae.us"
     LIVE_PATH = "/webservices/SIIService.svc?wsdl"
     KEYS_MAP  = { "on_hand" => "qty" }
