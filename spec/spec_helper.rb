@@ -50,6 +50,7 @@ def order_hash
   email:        "someone@somehwere.com",
   number:       "R123123123",
   type:         "OO",
+  currency:     "USD",
   line_items: [
     {
       price:    "127.23",
@@ -59,6 +60,10 @@ def order_hash
     }
   ],
   shipping_code: "90",
-  invoice_url:   "http://example.com/R123123123/invoice"
+  invoice_url:   "http://example.com/R123123123/invoice",
+  shipping_cost: 10,
+  shipping_discount: -5,
+  item_discount: 0,
+  total_amount: 132.23
 }
 end
