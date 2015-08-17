@@ -5,8 +5,8 @@ module Stellae
   class Client
 
     PORT      = 443
-    TEST_HOST = "www.stellae.us"
-    TEST_PATH = "/webservicestest/SIIService.svc?wsdl"
+    TEST_HOST = "webservice.stellae.us"
+    TEST_PATH = "/SIIServices/Siiservice.svc?wsdl"
     LIVE_HOST = "www.stellae.us"
     LIVE_PATH = "/webservices/SIIService.svc?wsdl"
     KEYS_MAP  = { "on_hand" => "qty" }
@@ -52,7 +52,7 @@ module Stellae
     private
     def default_options
       { 
-        verbose: true,
+        verbose: false,
         test_mode: false
       }
     end
