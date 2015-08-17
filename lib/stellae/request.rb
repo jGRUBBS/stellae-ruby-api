@@ -17,7 +17,6 @@ module Stellae
     def construct_xml(type)
       @client.type = type
       xml = Builder::XmlMarkup.new
-      xml.instruct!
       xml.s :Envelope, :"xmlns:s" => SCHEMA[:soap_envelop], :"xmlns:a" => SCHEMA[:addressing] do
         build_header(xml, type)
         xml.s :Body do 
