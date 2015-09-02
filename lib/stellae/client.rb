@@ -30,7 +30,9 @@ module Stellae
     def get_inventory
       request  = Inventory.new(self).build_inventory_request
       response = post(request)
-      map_results(response.result['Inventory_values'][0]['UPC_Inventory_Response'])
+      result   = response.result['Inventory_values'][0]['UPC_Inventory_Response']
+      return nil if result.blank?
+      map_results(result)
     end
 
     def upcs(inventory)
