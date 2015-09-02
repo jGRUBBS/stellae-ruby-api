@@ -27,6 +27,10 @@ module Stellae
       response = post(request)
     end
 
+    def order_request(order)
+      Order.new(self).build_order_request(order)
+    end
+
     def get_inventory
       request  = Inventory.new(self).build_inventory_request
       response = post(request)

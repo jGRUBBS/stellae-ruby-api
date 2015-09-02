@@ -60,7 +60,7 @@ module Stellae
         xml.cdata!(address[:address2])
       end
       xml.b :"#{type}_ADDRESS_3" do
-        xml.cdata!(address[:address3])
+        xml.cdata!(address[:address3]) if address[:address3]
       end
       xml.b :"#{type}_ADDRESS_CITY",    address[:city]
       xml.b :"#{type}_ADDRESS_COUNTRY", address[:country]
