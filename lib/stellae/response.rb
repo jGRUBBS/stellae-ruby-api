@@ -17,7 +17,6 @@ module Stellae
     def initialize(raw_response, type)
       build_response(raw_response)
       @type = type
-      raise error if failure?
     end
 
     def build_response(raw_response)
