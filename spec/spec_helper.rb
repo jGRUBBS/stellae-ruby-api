@@ -48,22 +48,22 @@ def order_hash
   gift_wrap:    "true",
   gift_message: "Happy Birthday!",
   email:        "someone@somehwere.com",
-  number:       "R123123123",
+  number:       "R123123124",
   type:         "OO",
   currency:     "USD",
   line_items: [
     {
       price:    "127.23",
       quantity: "1",
-      sku:      "326604071",
+      sku:      "8433889054239",
       size:     "XS"
     }
   ],
-  shipping_code: "90",
-  invoice_url:   "http://example.com/R123123123/invoice",
-  shipping_cost: 10,
+  shipping_method:   "90",
+  invoice_url:       "http://example.com/R123123123/invoice",
+  shipping_cost:     10,
   shipping_discount: -5,
-  item_discount: 0,
-  total_amount: 132.23
+  item_discount:     0,
+  total_amount:      132.23
 }
 end

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Stellae::Client do
-  let(:client) { Stellae::Client.new("TESTACCOUNT", "TESTPASSWORD", test_mode: true) }
+  let(:client) { Stellae::Client.new("DELPOZOTEST", "9kUw#xAmk7uT", test_mode: true) }
 
   describe '#send_order_request', :vcr do
     let(:result) { client.send_order_request(order_hash) }

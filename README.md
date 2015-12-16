@@ -62,7 +62,7 @@ order = {
       size:     "XS"
     }
   ],
-  shipping_code: "90",
+  shipping_method: "90",
   invoice_url:   "http://example.com/R123123123/invoice"
 }
 

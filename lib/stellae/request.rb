@@ -41,10 +41,24 @@ module Stellae
     end
 
     def build_user(xml)
-      xml.user :"xmlns:b" => SCHEMA[:datacontract], :"xmlns:i" => SCHEMA[:instance] do
-        xml.b :user_name,     @client.username
-        xml.b :user_password, @client.password
+      xml.user :"xmlns:a" => SCHEMA[:datacontract], :"xmlns:i" => SCHEMA[:instance] do
+        soap_field xml, :user_name,     @client.username
+        soap_field xml, :user_password, @client.password
       end
+    end
+
+    def soap_field(xml, field, value = nil, prefix = "a")
+      if block_given?
+        xml.tag! prefix, field.to_sym do
+          yield(xml)
+        end
+      else
+        xml.tag! prefix, field.to_sym, soap_value(value)
+      end
+    end
+
+    def soap_value(value)
+      value.presence || { :"i:nil" => "true" }
     end
 
   end

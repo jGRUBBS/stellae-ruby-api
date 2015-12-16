@@ -1,3 +1,4 @@
+require "active_support/core_ext/object/blank"
 require "stellae/version"
 require "stellae/response"
 require "stellae/client"
