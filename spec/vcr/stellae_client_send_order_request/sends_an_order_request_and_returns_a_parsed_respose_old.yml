@@ -21,10 +21,10 @@ http_interactions:
         Smith</a:DELIVERY_NAME><a:DELIVERY_TELEPHONE>123-123-1234</a:DELIVERY_TELEPHONE><a:DELIVERY_TO
         i:nil="true"/><a:DISCOUNT>0</a:DISCOUNT><a:EMAIL>someone@somehwere.com</a:EMAIL><a:FREIGHT_ACCOUNT
         i:nil="true"/><a:MISC1>0</a:MISC1><a:MISC1_REASON i:nil="true"/><a:MISC2>0</a:MISC2><a:MISC2_REASON
-        i:nil="true"/><a:ORDER_ID>R123123126</a:ORDER_ID><a:ORDER_TYPE>OO</a:ORDER_TYPE><a:Order_Details><a:Order_Detail_New><a:COST
+        i:nil="true"/><a:ORDER_ID>R123123125</a:ORDER_ID><a:ORDER_TYPE>OO</a:ORDER_TYPE><a:Order_Details><a:Order_Detail_New><a:COST
         i:nil="true"/><a:FLAGS i:nil="true"/><a:LINE_ID i:nil="true"/><a:LOT_NUMBER
         i:nil="true"/><a:PRICE>127.23</a:PRICE><a:QUANTITY>1</a:QUANTITY><a:RETAIL_PRICE
-        i:nil="true"/><a:SEASON i:nil="true"/><a:SIZE>XS</a:SIZE><a:SKU>8433889054239</a:SKU></a:Order_Detail_New></a:Order_Details><a:SERVICE>05</a:SERVICE><a:SHIPPING_FEES>5</a:SHIPPING_FEES><a:TAXES>0</a:TAXES><a:TOTAL_AMOUNT>132.23</a:TOTAL_AMOUNT><a:USER1>http://example.com/R123123123/invoice</a:USER1><a:USER2
+        i:nil="true"/><a:SEASON i:nil="true"/><a:SIZE>XS</a:SIZE><a:SKU>8433889054239</a:SKU></a:Order_Detail_New></a:Order_Details><a:SERVICE>90</a:SERVICE><a:SHIPPING_FEES>5</a:SHIPPING_FEES><a:TAXES>0</a:TAXES><a:TOTAL_AMOUNT>132.23</a:TOTAL_AMOUNT><a:USER1>http://example.com/R123123123/invoice</a:USER1><a:USER2
         i:nil="true"/><a:USER3 i:nil="true"/><a:USER4 i:nil="true"/><a:USER5 i:nil="true"/><a:WAREHOUSE
         i:nil="true"/></ohn></new_order_entry></s:Body></s:Envelope>
     headers:
@@ -50,15 +50,15 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 17 Dec 2015 23:52:02 GMT
+      - Thu, 17 Dec 2015 16:32:46 GMT
     body:
       encoding: UTF-8
       string: <s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing"><s:Header><a:Action
         s:mustUnderstand="1">SII/ISIIService/new_order_entryResponse</a:Action><ActivityId
-        CorrelationId="13a4a194-08f5-4649-945e-f1ef656b81c4" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">d88e1037-c3f8-4ab3-98e3-ef424116c854</ActivityId><a:RelatesTo>urn:uuid:56b55a70-8bbc-471d-94bb-9ca060bcf99f</a:RelatesTo></s:Header><s:Body><new_order_entryResponse
+        CorrelationId="c5e5b0d9-9cbd-43cc-aa4c-94fa8bd32f98" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">a5525994-a65e-4ec0-aeaa-a38ff4b9de4f</ActivityId><a:RelatesTo>urn:uuid:56b55a70-8bbc-471d-94bb-9ca060bcf99f</a:RelatesTo></s:Header><s:Body><new_order_entryResponse
         xmlns="SII"><new_order_entryResult xmlns:b="http://schemas.datacontract.org/2004/07/"
         xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><b:detail_status i:nil="true"
-        xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><b:sii_order_number>11787</b:sii_order_number><b:status>0001</b:status></new_order_entryResult></new_order_entryResponse></s:Body></s:Envelope>
+        xmlns:c="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/><b:sii_order_number>11786</b:sii_order_number><b:status>0001</b:status></new_order_entryResult></new_order_entryResponse></s:Body></s:Envelope>
     http_version: 
-  recorded_at: Thu, 17 Dec 2015 23:53:39 GMT
+  recorded_at: Thu, 17 Dec 2015 16:34:20 GMT
 recorded_with: VCR 2.9.3

@@ -2,6 +2,7 @@ module Stellae
   class Order < Request
 
     include State
+    include Shipping
 
     def build_order_request(order)
 
@@ -9,7 +10,7 @@ module Stellae
 
         xml.ohn :"xmlns:a" => SCHEMA[:datacontract], :"xmlns:i" => SCHEMA[:instance] do
 
-          soap_field       xml, :CARRIER,          order[:carrier].upcase
+          soap_field       xml, :CARRIER,          order[:shipping_carrier].upcase
           soap_field       xml, :CURRENCY,         order[:currency].upcase
           build_address    xml, "CUSTOMER",        order[:billing_address]
           soap_field       xml, :CUSTOMER_CODE
@@ -35,7 +36,7 @@ module Stellae
           soap_field       xml, :ORDER_ID,         order[:number]
           soap_field       xml, :ORDER_TYPE,       order[:type] || 'OO'
           build_line_items xml,                    order
-          soap_field       xml, :SERVICE,          order[:shipping_method]
+          soap_field       xml, :SERVICE,          shipping_service(order[:shipping_method])
           soap_field       xml, :SHIPPING_FEES,    shipping_fees(order)
           soap_field       xml, :TAXES,            order[:tax] || 0
           soap_field       xml, :TOTAL_AMOUNT,     order[:total_amount] || 0

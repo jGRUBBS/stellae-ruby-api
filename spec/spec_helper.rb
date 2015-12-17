@@ -20,7 +20,7 @@ end
 
 def order_hash
 {
-  carrier: "FEDEX",
+  shipping_carrier: "FEDEX",
   billing_address:  { 
     first_name: "John",
     last_name:  "Smith",
@@ -48,7 +48,7 @@ def order_hash
   gift_wrap:    "true",
   gift_message: "Happy Birthday!",
   email:        "someone@somehwere.com",
-  number:       "R123123125",
+  number:       "R123123126",
   type:         "OO",
   currency:     "USD",
   line_items: [
@@ -59,7 +59,7 @@ def order_hash
       size:     "XS"
     }
   ],
-  shipping_method:   "90",
+  shipping_method:   "Next Business Day",
   invoice_url:       "http://example.com/R123123123/invoice",
   shipping_cost:     10,
   shipping_discount: -5,
