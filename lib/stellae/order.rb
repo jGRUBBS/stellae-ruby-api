@@ -1,13 +1,16 @@
 module Stellae
   class Order < Request
 
+    include State
+
     def build_order_request(order)
+
       construct_xml "new_order_entry" do |xml|
 
         xml.ohn :"xmlns:a" => SCHEMA[:datacontract], :"xmlns:i" => SCHEMA[:instance] do
 
-          soap_field       xml, :CARRIER,          order[:carrier]
-          soap_field       xml, :CURRENCY,         order[:currency]
+          soap_field       xml, :CARRIER,          order[:carrier].upcase
+          soap_field       xml, :CURRENCY,         order[:currency].upcase
           build_address    xml, "CUSTOMER",        order[:billing_address]
           soap_field       xml, :CUSTOMER_CODE
           build_name       xml, "CUSTOMER",        order[:billing_address]
@@ -42,9 +45,11 @@ module Stellae
           soap_field       xml, :USER4
           soap_field       xml, :USER5
           soap_field       xml, :WAREHOUSE
+
         end
 
       end
+
     end
 
     private
@@ -64,7 +69,7 @@ module Stellae
       soap_field xml, :"#{type}_ADDRESS_3",       address[:address3]
       soap_field xml, :"#{type}_ADDRESS_CITY",    address[:city]
       soap_field xml, :"#{type}_ADDRESS_COUNTRY", address[:country]
-      soap_field xml, :"#{type}_ADDRESS_STATE",   address[:state]
+      soap_field xml, :"#{type}_ADDRESS_STATE",   state_abbr(address[:state])
       soap_field xml, :"#{type}_ADDRESS_ZIP",     address[:zipcode]
     end
 

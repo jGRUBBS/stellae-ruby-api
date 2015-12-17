@@ -48,7 +48,7 @@ def order_hash
   gift_wrap:    "true",
   gift_message: "Happy Birthday!",
   email:        "someone@somehwere.com",
-  number:       "R123123124",
+  number:       "R123123125",
   type:         "OO",
   currency:     "USD",
   line_items: [
